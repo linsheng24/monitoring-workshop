@@ -6,3 +6,13 @@ kube-prometheus-stack:
           static_configs:
             - targets:
                 - "node-exporter.monitoring.svc.cluster.local:9100"
+  grafana:
+    adminUser: admin
+    adminPassword: admin
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      hosts:
+        - prometheus.local
+      paths: /
