@@ -1,11 +1,13 @@
 kube-prometheus-stack:
-  prometheus:
-    prometheusSpec:
-      additionalScrapeConfigs:
-        - job_name: "node-exporter"
-          static_configs:
-            - targets:
-                - "node-exporter.monitoring.svc.cluster.local:9100"
+  # prometheus:
+  #   prometheusSpec:
+  #     additionalScrapeConfigs:
+  #       - job_name: "node-exporter"
+  #         static_configs:
+  #           - targets:
+  #               - "node-exporter.monitoring.svc.cluster.local:9100"
+  nodeExporter:
+    enabled: true
   grafana:
     adminUser: admin
     adminPassword: admin
