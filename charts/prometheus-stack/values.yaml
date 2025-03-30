@@ -1,11 +1,20 @@
 kube-prometheus-stack:
-  # prometheus:
-  #   prometheusSpec:
-  #     additionalScrapeConfigs:
-  #       - job_name: "node-exporter"
-  #         static_configs:
-  #           - targets:
-  #               - "node-exporter.monitoring.svc.cluster.local:9100"
+  prometheus:
+    prometheusSpec:
+      additionalScrapeConfigs:
+        - job_name: "web-app-example"
+          static_configs:
+            - targets:
+                - "web-app-example.web.svc.cluster.local:3000"
+    adminUser: admin
+    adminPassword: admin
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      hosts:
+        - prometheus.local
+      paths:
+        - /
   nodeExporter:
     enabled: true
   grafana:
@@ -16,5 +25,5 @@ kube-prometheus-stack:
       annotations:
         kubernetes.io/ingress.class: nginx
       hosts:
-        - prometheus.local
+        - grafana.local
       paths: /

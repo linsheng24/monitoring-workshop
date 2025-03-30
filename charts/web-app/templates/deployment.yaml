@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-metrics
-  namespace: monitoring
+  name: web-app-example
+  namespace: web
   labels:
-    app: nodejs-metrics
+    app: web-app-example
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodejs-metrics
+      app: web-app-example
   template:
     metadata:
       labels:
-        app: nodejs-metrics
+        app: web-app-example
     spec:
       containers:
-        - name: nodejs-metrics
-          image: stefanprodan/prometheus-nodejs-app:latest
+        - name: web-app-example
+          image: linsheng24/web-app-example
           ports:
             - containerPort: 3000
-              name: metrics

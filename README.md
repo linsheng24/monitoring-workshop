@@ -6,6 +6,7 @@
   - use push gateway to get metric from cronjob.
   - intergration with thanos.
   - use terraform to manage dashboards.
+  - opentelemetry
 
 # Dashboard 規劃
 

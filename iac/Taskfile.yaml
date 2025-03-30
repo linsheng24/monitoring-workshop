@@ -1,0 +1,15 @@
+version: '3'
+
+tasks:
+  show-argocd-password:
+    desc: Show the initial password for the ArgoCD admin user
+    cmds:
+      - kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode
+  open-argocd:
+    desc: show endpoint for ArgoCD
+    cmds:
+      - open -a "Google Chrome" https://argocd.local
+  open-prometheus:
+    desc: show endpoint for Prometheus
+    cmds:
+      - open -a "Google Chrome" https://prometheus.local
