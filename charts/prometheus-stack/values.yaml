@@ -1,11 +1,27 @@
 kube-prometheus-stack:
+  alertmanager:
+    serviceMonitor:
+        selfMonitor: true
   prometheus:
+    thanosService:
+      enabled: true
+    thanosServiceMonitor:
+      enabled: true
     prometheusSpec:
+      disableCompaction: true
       additionalScrapeConfigs:
         - job_name: "web-app-example"
           static_configs:
             - targets:
                 - "web-app-example.web.svc.cluster.local:3000"
+        - job_name: 'pushgateway'
+          static_configs:
+            - targets: ['pushgateway.cronjob.svc.cluster.local:9091']
+      thanos:
+        objectStorageConfig:
+          existingSecret:
+            name: thanos-objstore
+            key: objstore.yml
     adminUser: admin
     adminPassword: admin
     ingress:

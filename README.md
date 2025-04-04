@@ -1,12 +1,12 @@
 # monitoring-workshop
 
 - Todolist
-  - [ ] set alert to send notification to discord.
-  - [x] pull metric from app.
-  - [ ] use push gateway to get metric from cronjob.
-  - [ ] intergration with thanos.
-  - [ ] use terraform to manage dashboards.
-  - [ ] opentelemetry
+  - [x] Set alert to send notification to discord.
+  - [x] Pull metric from app.
+  - [x] Use push gateway to get metric from cronjob.
+  - [ ] Intergration with thanos.
+  - [x] Use terraform to manage dashboards.
+  - [ ] Opentelemetry
 
 # Dashboard 規劃
 

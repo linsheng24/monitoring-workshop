@@ -21,7 +21,7 @@ resource "null_resource" "push_to_github" {
   depends_on = [github_repository.web_app_example]
 
   triggers = {
-    directory_hash = timestamp()
+    run_on = 1
   }
 
   provisioner "local-exec" {

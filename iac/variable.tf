@@ -22,3 +22,8 @@ variable "dockerhub_password" {
   description = "The password for accessing Docker Hub"
   type        = string
 }
+
+variable "discord_webhook_url" {
+  description = "The Discord webhook URL for notifications"
+  type        = string
+}

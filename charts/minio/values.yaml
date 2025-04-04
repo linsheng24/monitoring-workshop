@@ -1,0 +1,5 @@
+minio:
+  auth:
+    rootUser: admin
+    rootPassword: password
+  defaultBuckets: default
